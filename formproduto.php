@@ -5,58 +5,72 @@
 	<?php
 		include 'header.php';
 	?>
+</head>
 <body>
 	<div class="wrapper">
-	<?php include 'menu.php' ?>
+		<?php include 'menu.php'; ?>
 
 		<div class="main">
-        <?php include 'topo.php' ?>
+			<?php include 'topo.php'; ?>
 
-		<main class="content">
-			<form action="cadastroproduto.php" method="post">
-				<div class="container-fluid p-0">
+			<main class="content">
+				<form action="cadastroproduto.php" method="post" enctype="multipart/form-data">
+					<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Cadastro de Produtos</h1>
+						<h1 class="h3 mb-3">Cadastro de Produtos</h1>
 
-					<div class="row">
-					<div class="mb-3 col-6">
-						<label for="produto" class="form-label">Produto</label>
-						<input type="text" class="form-control" id="produto" name="produto" placeholder="Digite o nome do produto">
+						<div class="row">
+							<div class="mb-3 col-6">
+								<label for="produto" class="form-label">Produto</label>
+								<input type="text" class="form-control" id="produto" name="produto" placeholder="Digite o nome do produto">
+							</div>
+							<div class="mb-3 col-6">
+								<label for="descricao" class="form-label">Descrição</label>
+								<textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+							</div>
+							<div class="mb-3">
+								<label for="categoria" class="form-label">Categoria de Produto</label>
+								<select class="form-select form-select-sm" name="categoria" id="categoria">
+									<option value="eletronicos">Eletrônicos</option>
+									<option value="informatica">Informática</option>
+								</select>
+							</div>
+							<div class="mb-3 col-6">
+								<label for="estoque" class="form-label">Estoque</label>
+								<input type="number" class="form-control" name="estoque" id="estoque" min="0" max="" step="">
+							</div>
+							<div class="mb-3 col-6">
+								<label for="preco" class="form-label">Preço</label>
+								<input type="number" class="form-control" name="preco" id="preco" min="0" max="" step="0.01">
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary btn-lg" value="Salvar">
 					</div>
-					<div class="mb-3 col-6">
-						<label for="descricao" class="form-label">Descrição</label>
-						<textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
-					</div>
-					<div class="mb-3">
-						<label for="categoria" class="form-label">Categoria de Produto</label>
-						<select
-							class="form-select form-select-sm"
-							name="categoria"
-							id="categoria"
-						>
-							<option value="eletronicos">Eletrônicos</option>
-							<option value="informatica">Informática</option>
-						</select>
-					</div>
-					<div class="mb-3 col-6">
-						<label for="estoque" class="form-label">Estoque</label>
-						<input type="number" class="form-control" name="estoque" id="estoque" min="0" max="200" step="1">
-					</div>
-					<div class="mb-3 col-6">
-						<label for="preco" class="form-label">Preço</label>
-						<input type="number" class="form-control" name="preco" id="preco" min="0" max="200" step="1">
-					</div>
-					</div>
-					
-
-				</div>
-				<input type="submit" class="btn btn-primary btn-lg" value="Salvar">
-			</form>	
+				</form>	
 			</main>
 
 			<footer class="footer">
-            <?php include 'footer.php' ?>
+				<?php include 'footer.php'; ?>
 			</footer>
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="container">
+			<div class="table-responsive">
+				<table class="table table-striped table-light">
+					<tbody>
+						<?php
+							include 'conexao.php';
+							$sql = "SELECT * FROM produtos";
+							$busca = mysqli_query($conexao, $sql);
+							while ($dados = mysqli_fetch_array($busca)) {
+
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 
