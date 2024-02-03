@@ -60,12 +60,8 @@
 										</label>
 									</div>
 								</div>
-								<div class="col-12">
-									<button type="submit" class="btn btn-primary">Sign in</button>
-								</div>
 							</form>
 						</div>
-
 
 					</div>
 					<input type="submit" class="btn btn-primary btn-lg" value="Salvar">
